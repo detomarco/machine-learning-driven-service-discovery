@@ -1,0 +1,11 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: api-gateway
+
+discovery:
+  register: false
+  context: C1

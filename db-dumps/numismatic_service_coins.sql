@@ -1,0 +1,11 @@
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (1, 'ITALY', '1 Series', 'ct', 2, 2002);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (3, 'ITALY', '1 Series', 'ct', 5, 2002);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (10, 'LITHUANIA', '1 Series', 'ct', 5, 2015);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (8, 'MALTA', '1 Series', 'ct', 5, 2008);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (7, 'NETHERLANDS', 'WILLEIM ALEXANDER', 'ct', 5, 2014);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (12, 'CYPRUS', '1 Series', 'ct', 10, 2008);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (4, 'ITALY', '1 Series - New Reverse', 'ct', 10, 2008);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (11, 'CYPRUS', '1 Series', 'ct', 20, 2008);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (5, 'ITALY', '1 Series - New Reverse', 'ct', 20, 2008);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (6, 'ITALY', '1 Series', 'ct', 50, 2002);
+INSERT INTO numismatic_service.coins (id, country, series, type, value, year_from) VALUES (9, 'MALTA', '1 Series - New Reverse', 'ct', 50, 2008);

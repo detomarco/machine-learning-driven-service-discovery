@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/user_service?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: user_service
+    password: user_service
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.spatial.dialect.mysql.MySQL56SpatialDialect
+        current_session_context_class: thread
+        hbm2ddl.auto: update
+        format_sql: false
+        show_sql: false
+  jackson:
+    serialization:
+      indent_output: true

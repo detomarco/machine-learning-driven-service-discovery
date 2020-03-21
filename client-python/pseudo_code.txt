@@ -1,0 +1,11 @@
+
+
+    (1) user = user_authentication(user_name, password)
+    (2) nearby_users = retrieve_nearby_users(user)
+    (3) for each nearby users
+    (4)    countries = retrieve_coins_country(nearby_user)
+    (5)    for each countries
+    (6)        coins = retrieve_coins(country)
+
+
+

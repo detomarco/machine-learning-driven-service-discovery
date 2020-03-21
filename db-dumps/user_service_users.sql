@@ -1,0 +1,2 @@
+INSERT INTO user_service.users (id, email, enabled, name, password, surname, username, city_id) VALUES (1, 'email@asd.it', true, 'marco', 'admin', 'de toma', 'admin', 1);
+INSERT INTO user_service.users (id, email, enabled, name, password, surname, username, city_id) VALUES (2, 'email2@asd.it', true, 'marco', 'admin', 'de toma', 'admin2', 1);

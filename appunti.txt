@@ -1,0 +1,23 @@
+select * from (
+select * from
+    monitoring_data
+where service_instance = 'http://127.0.0.1:8050'
+    and  timestamp > (select timestamp from monitoring_data
+                      where service_instance = 'http://127.0.0.1:8050'
+                      order by id desc limit 1) - INTERVAL 10 MINUTE
+union
+select * from
+    monitoring_data
+where service_instance = 'http://127.0.0.1:8051'
+  and  timestamp > (select timestamp from monitoring_data
+                    where service_instance = 'http://127.0.0.1:8051'
+                    order by id desc limit 1) - INTERVAL 10 MINUTE
+union
+select * from
+    monitoring_data
+where service_instance = 'http://127.0.0.1:8052'
+  and  timestamp > (select timestamp from monitoring_data
+                    where service_instance = 'http://127.0.0.1:8052'
+                    order by id desc limit 1) - INTERVAL 10 MINUTE) as A
+order by id
+;

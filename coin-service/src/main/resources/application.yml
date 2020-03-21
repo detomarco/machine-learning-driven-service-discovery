@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: coin-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/coin_service?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: coin_service
+    password: coin_service
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDB53Dialect
+        current_session_context_class: thread
+        hbm2ddl.auto: update
+        format_sql: false
+        show_sql: false
+  jackson:
+    serialization:
+      indent_output: true

@@ -1,0 +1,11 @@
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (2, 11);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 1);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 3);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 4);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 5);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 6);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 7);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 8);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 9);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 10);
+INSERT INTO numismatic_service.users_coins (users_id, coins_id) VALUES (1, 12);
