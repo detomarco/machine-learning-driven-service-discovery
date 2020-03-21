@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<springoauth.version>2.3.4.RELEASE</springoauth.version>
+		<springoauth.version>2.3.6.RELEASE</springoauth.version>
 		<springjwt.version>1.0.9.RELEASE</springjwt.version>
 	</properties>
 
