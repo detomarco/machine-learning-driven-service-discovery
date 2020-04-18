@@ -1,11 +1,11 @@
 discovery:
   strategy:
-    selection: greedy
+    selection: random
     prediction: static
   address:
     service-discovery: >
-      http://localhost:8761
-    service-monitoring: http://localhost:8763
+      http://34.90.202.154:8761
+    service-monitoring: http://34.90.202.154:8763
     ml-engine: >
       http://localhost:8764
   scheduler.cron:

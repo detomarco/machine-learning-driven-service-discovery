@@ -46,6 +46,7 @@ public class InMemoryRepository implements RegistryRepository {
                     .collect(Collectors.toList());
         }
         serviceInstances.add(serviceInstance);
+        log.info("Service Registered {}", serviceInstance);
         ServiceRegistryMap.getInstance().put(serviceInstance.getName(), serviceInstances);
     }
 
