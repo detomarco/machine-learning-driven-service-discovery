@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: stub-service
+  profiles:
+    active: profile1
+  jackson:
+    serialization:
+      indent_output: true

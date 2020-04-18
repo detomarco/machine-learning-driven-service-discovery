@@ -1,4 +1,4 @@
-package it.univaq.disim.numismatic.authservice;
+package it.univaq.disim.numismatic.stubservice;
 
 import it.univaq.disim.discovery.common.annotation.EnableDiscovery;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
@@ -10,10 +10,10 @@ import org.springframework.core.io.FileSystemResource;
 
 @EnableDiscovery
 @SpringBootApplication
-public class AuthServiceApplication {
+public class StubServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AuthServiceApplication.class, args);
+        SpringApplication.run(StubServiceApplication.class, args);
     }
 
     @Bean
