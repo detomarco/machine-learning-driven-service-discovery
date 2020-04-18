@@ -1,6 +1,6 @@
 
 server:
-  port: 8072
+  port: 9012
 
 discovery:
   context: C3

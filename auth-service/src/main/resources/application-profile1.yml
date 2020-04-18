@@ -1,9 +1,9 @@
 
 server:
-  port: 8054
+  port: 9030
 
 discovery:
-  context: C2
+  context: C1
   delay:
     0: 0.1
     1: 0.2

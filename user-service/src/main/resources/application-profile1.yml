@@ -1,6 +1,6 @@
 
 server:
-  port: 8070
+  port: 9010
 
 discovery:
   context: C1

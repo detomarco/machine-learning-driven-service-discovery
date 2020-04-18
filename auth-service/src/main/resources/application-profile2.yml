@@ -1,6 +1,6 @@
 
 server:
-  port: 9021
+  port: 9031
 
 discovery:
   context: C2

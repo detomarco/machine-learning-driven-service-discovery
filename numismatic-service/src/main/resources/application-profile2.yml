@@ -1,6 +1,6 @@
 
 server:
-  port: 8051
+  port: 9001
 
 discovery:
   context: C2

@@ -1,11 +1,14 @@
 package it.univaq.disim.numismatic.userservice.business.impl;
 
 
+import it.univaq.disim.discovery.common.DiscoveryRestTemplate;
 import it.univaq.disim.numismatic.userservice.business.UserService;
 import it.univaq.disim.numismatic.userservice.business.domain.User;
 import it.univaq.disim.numismatic.userservice.business.exception.BusinessException;
 import it.univaq.disim.numismatic.userservice.business.exception.ErrorCode;
 import it.univaq.disim.numismatic.userservice.business.repository.UserRepository;
+import it.univaq.disim.numismatic.userservice.controller.model.LoginRequest;
+import it.univaq.disim.numismatic.userservice.controller.model.LoginResponse;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.util.GeometricShapeFactory;
@@ -17,6 +20,9 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private DiscoveryRestTemplate discoveryRestTemplate;
 
     @Autowired
     private UserRepository userRepository;
@@ -33,6 +39,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User login(String username, String password) {
+        LoginRequest loginRequest = new LoginRequest();
+        loginRequest.setPassword(password);
+        loginRequest.setUsername(username);
+        LoginResponse loginResponse = discoveryRestTemplate.post("auth-service", "/login", loginRequest, LoginResponse.class);
         // authentication
         return authenticate(username, password);
     }
