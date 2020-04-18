@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {DataProviderService} from './data-provider.service';
-import {Coins, Countries, Users} from './model';
+import {Coins, Countries, ServiceInstance, ServiceInstanceResponse, Users} from './model';
 import {flatMap, mergeMap, switchMap} from 'rxjs/operators';
-import {forkJoin, of} from 'rxjs';
+import {forkJoin, interval, Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,9 @@ import {forkJoin, of} from 'rxjs';
 export class AppComponent {
 
   accessToken: string;
-  interval: any;
+  interval2: any;
+
+  serviceInstances: ServiceInstanceResponse;
 
   constructor(
     private dataProvider: DataProviderService,
@@ -27,11 +29,16 @@ export class AppComponent {
       localStorage.setItem('accessToken', this.accessToken);
     });
 
+
+   interval(5000).pipe(
+      switchMap(() => dataProvider.request<ServiceInstanceResponse>('/dashboard', 'GET'))
+    ).subscribe(res => this.serviceInstances = res);
   }
+
 
   start() {
 
-    this.interval = setInterval(() => {
+    this.interval2 = setInterval(() => {
       console.log('new requests');
       this.dataProvider.request<Users>('/v1/users/nearby?radius=50', 'GET')
         .pipe(
@@ -50,6 +57,6 @@ export class AppComponent {
   }
 
   stop() {
-    clearInterval(this.interval);
+    clearInterval(this.interval2);
   }
 }

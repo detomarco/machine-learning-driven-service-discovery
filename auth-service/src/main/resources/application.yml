@@ -1,6 +1,8 @@
 spring:
   application:
     name: auth-service
+  profiles:
+    active: profile1
   jackson:
     serialization:
       indent_output: true

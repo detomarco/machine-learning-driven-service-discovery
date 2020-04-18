@@ -1,6 +1,8 @@
 spring:
   application:
     name: numismatic-service
+  profiles:
+    active: profile1
   jackson:
     serialization:
       write-dates-as-timestamps: true

@@ -1,6 +1,8 @@
 spring:
   application:
     name: coin-service
+  profiles:
+    active: profile1
   datasource:
     url: jdbc:mysql://localhost:3306/coin_service?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: coin_service

@@ -38,3 +38,14 @@ export interface Coin {
 export interface Coins {
   coins: Coin[];
 }
+
+export interface ServiceInstanceResponse {
+  serviceInstances: ServiceInstance[]
+}
+
+export interface ServiceInstance {
+  name: string;
+  url: string;
+  context: string;
+  meanResponseTime: number;
+}
