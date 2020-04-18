@@ -5,12 +5,31 @@ button {
 }
 
 table {
-  margin-top: 50px;
+  margin-top: 30px;
+  border: 1px solid black;
+  //tr {
+  //  td {
+  //    width: 200px
+  //  }
+  //}
 
   tr {
-    td {
-      width: 200px
+    //border: 1px solid black;
+    th {
+      text-align: left;
+      margin: 0;
+      border-bottom: 1pt solid black;
     }
   }
+
+  th, td {
+    width: 200px;
+    padding: 5px 10px;
+  }
+
+  th:not(:last-child), td:not(:last-child){
+    border-right: 1pt solid black;
+  }
+
 }
 

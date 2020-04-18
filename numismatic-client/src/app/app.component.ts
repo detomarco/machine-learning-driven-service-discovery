@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {DataProviderService} from './data-provider.service';
-import {Coins, Countries, ServiceInstance, ServiceInstanceResponse, Users} from './model';
+import {Coins, Countries, ServiceInstanceResponse, Users} from './model';
 import {flatMap, mergeMap, switchMap} from 'rxjs/operators';
-import {forkJoin, interval, Observable, of} from 'rxjs';
+import {forkJoin, interval, of, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +12,10 @@ import {forkJoin, interval, Observable, of} from 'rxjs';
 export class AppComponent {
 
   accessToken: string;
-  interval2: any;
 
   serviceInstances: ServiceInstanceResponse;
+  subs: Subscription = new Subscription();
+
 
   constructor(
     private dataProvider: DataProviderService,
@@ -30,33 +31,33 @@ export class AppComponent {
     });
 
 
-   interval(5000).pipe(
-      switchMap(() => dataProvider.request<ServiceInstanceResponse>('/dashboard', 'GET'))
-    ).subscribe(res => this.serviceInstances = res);
+    this.subs.add(
+      interval(5000).pipe(
+        switchMap(() => dataProvider.request<ServiceInstanceResponse>('/dashboard', 'GET'))
+      ).subscribe(res => this.serviceInstances = res)
+    );
   }
 
 
   start() {
 
-    this.interval2 = setInterval(() => {
-      console.log('new requests');
-      this.dataProvider.request<Users>('/v1/users/nearby?radius=50', 'GET')
-        .pipe(
-          flatMap(({users}) => users),
-          mergeMap(user => forkJoin({
-            user: of(user),
-            countries: this.dataProvider.request<Countries>('/v1/countries/' + user.username, 'GET')
-              .pipe(flatMap(({countries}) => countries))
-          })),
-          mergeMap(({user, countries}) => this.dataProvider.request<Coins>(`/v1/coins?country=${countries}&username=${user.username}`, 'GET'))
-        )
-        .subscribe((result) => {
-          console.log(result)
-        });
-    }, 3000);
+    interval(3000).pipe(
+      switchMap(() => this.dataProvider.request<Users>('/v1/users/nearby?radius=50', 'GET')),
+      flatMap(({users}) => users),
+      mergeMap(user => forkJoin({
+        user: of(user),
+        countries: this.dataProvider.request<Countries>('/v1/countries/' + user.username, 'GET')
+          .pipe(flatMap(({countries}) => countries))
+      })),
+      mergeMap(({user, countries}) => this.dataProvider.request<Coins>(`/v1/coins?country=${countries}&username=${user.username}`, 'GET'))
+    ).subscribe((result) => {
+      console.log(result)
+    });
+
   }
 
-  stop() {
-    clearInterval(this.interval2);
+  stop () {
+    this.subs.unsubscribe();
   }
+
 }
