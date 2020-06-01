@@ -1,14 +1,17 @@
 discovery:
   strategy:
-    selection: random
-    prediction: static
+    selection: random # random | greedy | linear-regression | time-series
+    prediction: static # static | linear-regression | time-series
   address:
+    # service discovery addresses
     service-discovery: >
       http://34.90.202.154:8761
+    # service monitoring address
     service-monitoring: http://34.90.202.154:8763
+    # machine learning engine addresses
     ml-engine: >
       http://localhost:8764
   scheduler.cron:
-    registry: 60000      # 60 seconds
-    monitoring: 30000    # 30 seconds
-    training: 86400000   # 24 hours
+    registry: 60000      # time in ms
+    monitoring: 30000    # time in ms
+    training: 86400000   # time in ms
